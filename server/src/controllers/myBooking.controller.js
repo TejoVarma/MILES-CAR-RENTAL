@@ -1,5 +1,5 @@
-const myBookings = require("../models/mybookings");
-const User = require("../models/user.model");
+const myBookings = require("../models/myBookings.model");
+const User = require("../models/userRegister.model");
 const jwt = require("jsonwebtoken");
 exports.getmybookings = async (req, res) => {
     try {
