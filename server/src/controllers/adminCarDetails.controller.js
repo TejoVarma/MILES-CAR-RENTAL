@@ -5,7 +5,7 @@ const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
 const client = new MongoClient(process.env.DB_URL);
 const jwt = require('jsonwebtoken');
-const Admin = require('../models/admin.model');
+const Admin = require('../models/adminRegister.model');
 let carDetailsController = {};
 
 carDetailsController.addNewCar = async function (req, res) {

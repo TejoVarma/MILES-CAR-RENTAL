@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const carRoutes = require('./routes/carDetails.routes');
-const bookingRoutes=require("./routes/Booking-router");
-const mybookings=require("./routes/mybooking.router");
+const adminCarRoutes = require('./routers/adminCarDetails.router');
+const carBookingRoutes = require('./routers/booking.router');
+const myBookingRoutes = require('./routers/myBooking.router');
+const loginRoutes = require('./routers/logins.router');
 
 
 app.use(express.json());
@@ -11,9 +12,8 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(cors());
 
-app.use('/admin', carRoutes);
-app.use('/user',bookingRoutes)
-app.use('/user',mybookings)
-app.use('/api',require ("./routes/user.router"));
-app.use('/api',require ("./routes/admin.router"));
+app.use('/admin', adminCarRoutes);
+app.use('/user',carBookingRoutes)
+app.use('/user',myBookingRoutes)
+app.use('/api',loginRoutes);
 module.exports = app;
