@@ -1,0 +1,38 @@
+.main{
+    width: 100vw;
+    height: 100vh;
+}
+.header{
+    width: 100%;
+    height: 85px;
+    box-sizing: border-box;
+    display: flex;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+.logo-company-container{
+    width: 50%;
+}
+.logo{
+    width: 70px;
+    margin-left: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    display: inline-block;
+}
+.company-name{
+    margin-left: 10px;
+    display: inline-block;
+}
+.right-header{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+.social-logos{
+    width: 60px;
+    margin-right: 20px;
+}
