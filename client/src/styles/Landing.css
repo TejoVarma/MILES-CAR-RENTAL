@@ -1,0 +1,94 @@
+.landing-page{
+    width: 100%;
+}
+
+.home-image{
+    background-image: url('../../public/landing-home.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 750px;
+}
+.background-matte{
+    background-color: rgba(0,0,0,0.7);
+    height: 750px;
+    display: flex;
+}
+.heading{
+    font-size: 40px;
+    margin: 0px;
+}
+.description-section{
+    margin-left: 30px;
+    padding-top: 50px;
+    width: 50%;
+    color: rgb(244, 225, 225);
+    text-align: justify;
+    font-size: 24px;
+}
+.easy{
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    font-style: oblique;
+}
+.user-login-links{
+    margin-top: 150px;
+}
+.existing-user,.new-user,.existing-admin,.new-admin{
+    margin: 0px;
+    margin-bottom: 10px;
+    font-style: oblique;
+}
+.user-login,.admin-login{
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: 1s;
+}
+.user-login:hover{
+    cursor: pointer;
+    width: 140px;
+}
+.user-signup,.admin-signup{
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    transition: 1s;
+}
+.user-signup:hover{
+    cursor: pointer;
+    width: 140px;
+}
+.admin-section{
+    width: 50%;
+    text-align: center;
+}
+.admin-login-links{
+    margin-top: 320px;
+    color: rgb(244, 225, 225);
+    font-size: 24px;
+    font-style: oblique;
+}
+.second-section{
+    width: 100%;
+    height: 580px;
+}
+.admin-login{
+    width: 140px;
+}
+.admin-signup{
+    width: 140px;
+}
+.admin-signup:hover{
+    cursor: pointer;
+    width: 180px;
+}
+.admin-login:hover{
+    cursor: pointer;
+    width: 180px;
+}

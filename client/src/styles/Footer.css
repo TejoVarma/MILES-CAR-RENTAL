@@ -3,7 +3,7 @@
     height: 75px;
     box-sizing: border-box;
     display: flex;
-    background-color: black;
+    background-color: rgb(40, 40, 40);
     color: white;
     justify-content: center;
     align-items: center;
@@ -15,6 +15,8 @@
 .left-footer>h1{
     margin: 0px;
     margin-left: 20px;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
 }
 .right-footer{
     width : 50%;
