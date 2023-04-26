@@ -1,17 +1,18 @@
 import React from 'react';
-import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import LandingPage from './components/LandingPage';
+import AdminContext from './context/AdminContext';
+import Routers from './routes/Routes';
 
 function App() {
-  return (
-    <div className='main'>
-      <Header/>
-        <LandingPage/>
-      <Footer/>
-    </div>
-  );
+  return <>
+    <Header />
+    <AdminContext>
+      <Routers />
+    </AdminContext>
+    <Footer />
+  </>
+
 }
 
 export default App;

@@ -30,9 +30,26 @@ export default function LandingPage() {
                 </div>
             </div>
         </div>
-        <div className="second-section">
-            <div>
-                Let's go
+        <div className="testimonals-section">
+            <div className="testimonal">
+                <p className="testimonal-para">I was very pleased with the service provided by Miles Car Rental in Hyderabad, TG. The staff were friendly, the car was in perfect condition, and the prices were very competitive. I will definitely use Miles again in the future and recommend them to my friends and family.</p>
+                <p className="testimonal-name">-Siri</p>
+            </div>
+        </div>
+        <div className="services">
+            <div className="service">
+                <div>
+                    <img src="./service1.jpeg" alt="service1"/>
+                </div>
+                <div>
+                    <p></p>
+                </div>
+            </div>
+            <div className="service">
+                service2
+            </div>
+            <div className="service">
+                service3
             </div>
         </div>
     </div>
