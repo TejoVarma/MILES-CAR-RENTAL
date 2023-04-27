@@ -11,7 +11,6 @@
 .background-matte{
     background-color: rgba(0,0,0,0.7);
     height: 750px;
-    display: flex;
 }
 .heading{
     font-size: 40px;
@@ -31,62 +30,20 @@
     font-weight: 600;
     font-style: oblique;
 }
-.user-login-links{
-    margin-top: 150px;
+.landing-button-container{
+    margin: 40px;
 }
-.existing-user,.new-user,.existing-admin,.new-admin{
-    margin: 0px;
-    margin-bottom: 10px;
-    font-style: oblique;
-}
-.user-login,.admin-login{
-    width: 100px;
-    height: 40px;
+.landing-button{
+    width: 200px;
+    height: 50px;
     background-color: black;
     color: white;
-    border-radius: 20px;
-    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 25px;
     transition: 1s;
 }
-.user-login:hover{
-    cursor: pointer;
-    width: 140px;
-}
-.user-signup,.admin-signup{
-    width: 100px;
-    height: 40px;
-    background-color: black;
-    color: white;
-    border-radius: 20px;
-    transition: 1s;
-}
-.user-signup:hover{
-    cursor: pointer;
-    width: 140px;
-}
-.admin-section{
-    width: 50%;
-    text-align: center;
-}
-.admin-login-links{
-    margin-top: 320px;
-    color: rgb(244, 225, 225);
-    font-size: 24px;
-    font-style: oblique;
-}
-.admin-login{
-    width: 140px;
-}
-.admin-signup{
-    width: 140px;
-}
-.admin-signup:hover{
-    cursor: pointer;
-    width: 180px;
-}
-.admin-login:hover{
-    cursor: pointer;
-    width: 180px;
+.landing-button:hover{
+    width: 250px;
 }
 .testimonals-section{
     width: 100%;
@@ -98,15 +55,16 @@
 }
 .testimonal{
     width: 100%;
-    margin-left: 27%;
 }
 .testimonal-para{
     margin: 0px;
     width: 700px;
-    padding-top: 20px;
+    padding-top: 30px;
+    margin-left: 30%;
 }
 .testimonal-name{
     width: 700px;
+    margin-left: 30%;
 }
 .services{
     width: 100%;
@@ -115,4 +73,26 @@
 }
 .service{
     height: 300px;
+    display: flex;
+}
+.service-image-container{
+    width: 50%;
+    margin-left: 150px;
+    margin-top: 40px;
+}
+.service-image{
+    width: 374px;
+    height: 234px;
+}
+.service-description{
+    width: 50%;
+    margin-left: 100px;
+    margin-top: 40px;
+    color: rgb(255, 228, 228);
+}
+.service-heading{
+    font-size: 36px;
+}
+.service-para{
+    font-size: 24px;
 }
