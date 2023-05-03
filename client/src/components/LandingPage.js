@@ -52,5 +52,45 @@ export default function LandingPage() {
                 </div>
             </div>
         </div>
+        <div className="contact-us">
+            <div className="contact-us-description-container">
+                <div className="contact-us-description">
+                    <h2 className="contact-us-heading">
+                        Miles:Car-Rental Contact Form
+                    </h2>
+                    <p className="contact-us-para">
+                        Let us know how we can help you with your car rental needs. Fill out our contact form and we'll get back to you shortly.
+                    </p>
+                </div>
+            </div>
+            <div className="contact-us-form-container">
+                <div className="contact-us-form">
+                    <form>
+                        <div className="name-email-container">
+                            <div className="name">
+                                <label className="labels" htmlFor="name">Name</label>
+                                <input id="name" name="name" type='text' required/>
+                            </div>
+                            <div className="email">
+                                <label className="labels" htmlFor="email">Email</label>
+                                <input id="email" name="email" type='email' required/>
+                            </div>
+                        </div>
+                        <div className="message">
+                            <label className="labels" htmlFor="message">Description</label>
+                            <textarea rows="5" cols="60" name="message" id="message" required></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div className="about-us">
+            <div className="about-us-description-container">
+                <div className="about-us-description">
+                    <h1 className="about-us-heading">About Us</h1>
+                    <p className="about-us-para">Miles is a car rental business operating in over 160+ countries. We provide short and long-term car rental solutions to make traveling a breeze. We have a variety of cars ranging from luxury to economy, so you are sure to find something that suits your needs perfectly. Our rates are competitive and we offer excellent customer service. We are dedicated to providing a convenient and stress-free experience to our customers.We offer a wide selection of cars for rent, from sports cars to family cars. We also offer special packages for business trips, wedding car rentals, and more. Our knowledgeable and friendly staff are always on hand to answer any questions you may have and to help you make the best decision for your travel needs. We strive to make the car rental process as simple and hassle-free as possible. We look forward to helping you find the perfect car for your journey.</p>
+                </div>
+            </div>
+        </div>
     </div>
 }
