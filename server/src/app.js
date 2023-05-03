@@ -15,5 +15,6 @@ app.use(cors());
 app.use('/admin', adminCarRoutes);
 app.use('/user',carBookingRoutes)
 app.use('/user',myBookingRoutes)
-app.use('/api',loginRoutes);
+app.use('/admin',loginRoutes);
+app.use('/user',loginRoutes);
 module.exports = app;

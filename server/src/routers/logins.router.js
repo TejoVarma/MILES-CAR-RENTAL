@@ -10,7 +10,7 @@ const bcrypt = require("bcryptjs");
 const jwtSecret = process.env.SECRET;
 
 
-router.post("/registerAdmin", [
+router.post("/register", [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'password min length is 5').isLength({ min: 5 }),
 ], adminController.createAdmin);
@@ -18,10 +18,10 @@ router.post("/registerAdmin", [
 //---------------------------------------------------------------------------------
 // logging in a new user 
 
-router.post("/loginAdmin", adminController.loginAdmin)
+router.post("/login", adminController.loginAdmin)
 
 // creating a new user 
-router.post("/registerUser", [
+router.post("/register", [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'password min length is 8').isLength({ min: 8 }),
 ], userController.createUser);
@@ -29,7 +29,7 @@ router.post("/registerUser", [
 //---------------------------------------------------------------------------------
 // logging in a new user 
 
-router.post("/loginUser", userController.loginUser);
+router.post("/login", userController.loginUser);
 
 
 module.exports = router;
