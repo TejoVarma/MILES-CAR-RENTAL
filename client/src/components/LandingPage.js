@@ -12,7 +12,7 @@ export default function LandingPage() {
                         <p>Miles Car Rental is the go-to choice for car rental needs in your place. We offer a wide selection of cars for hire, from economy to luxury, with competitive rates and top-notch customer service. Whether you need a car for a day, a week or longer, Miles has you covered. <br /> <span className="easy">Book with us for an easy and stress-free car rental experience.</span></p>
                     </div>
                     <div className="landing-button-container">
-                        <Link to={'/login'}>
+                        <Link to={'/getstarted'}>
                         <button className="landing-button">Get Started....</button>
                         </Link>
                     </div>

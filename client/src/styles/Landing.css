@@ -4,6 +4,7 @@
 
 .home-image{
     background-image: url('../../public/landing-home.jpg');
+    background-position: fixed;
     background-size: cover;
     width: 100%;
     height: 750px;

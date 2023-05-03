@@ -7,7 +7,7 @@ export default function Routers() {
     return <BrowserRouter>
         <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/getstarted" element={<Login/>}/>
         </Routes>
     </BrowserRouter>
 }
