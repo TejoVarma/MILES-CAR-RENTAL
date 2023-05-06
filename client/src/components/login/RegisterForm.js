@@ -39,7 +39,7 @@ export default function RegisterForm({ setIsLog }) {
         }
         setBoo(false);
 
-        registerAnAccount(newUser, option ? "vendor" : "user")
+        registerAnAccount(newUser, option ? "admin" : "user")
             .then(res => {
                 if (res.status === "Success") {
                     if(option) toast.success("Vendor Registration successfully",{
@@ -62,7 +62,11 @@ export default function RegisterForm({ setIsLog }) {
                 else {
                     setBoo(true);
                     if (res.field) setError(ex => ({ ...ex, [res.field]: res.message }));
-                    else alert("Failed to log-in, try again!!");
+                    else 
+                    {
+                        console.log(res);
+                        alert("Failed to log-in, try again!!");
+                    }
                 }
             })
     }

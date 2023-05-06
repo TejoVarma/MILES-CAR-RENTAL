@@ -45,8 +45,8 @@ export default function LoginForm({ setIsLog, setIsreset }) {
                     else toast.success(` ${getCurrentUser().name} as User logged in successfully`, {
                         position: "bottom-right"
                     })
-                    if (option) navigate("/vendor/proposals");
-                    else navigate("/user/proposals");
+                    if (option) navigate("/admin");
+                    else navigate("/user");
                 }
                 else {
                     setBoo(true);
