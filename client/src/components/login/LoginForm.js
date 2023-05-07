@@ -21,8 +21,8 @@ export default function LoginForm({ setIsLog, setIsreset }) {
     });
 
     useEffect(() => {
-        if (getToken() && getCurrentUser().isVendor) return navigate("/vendor/proposals");
-        if (getToken() && getCurrentUser().isUser) return navigate("/user/proposals");
+        if (getToken() && getCurrentUser().isVendor) return navigate("/admin");
+        if (getToken() && getCurrentUser().isUser) return navigate("/user");
     }, []);
 
     function onFormSubmit(e) {

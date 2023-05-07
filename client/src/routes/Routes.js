@@ -4,9 +4,12 @@ import LandingPage from "../components/LandingPage";
 import Login from "../components/login/Login";
 import Admin from "../components/admin/Admin";
 import User from "../components/user/User";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Routers() {
     return <BrowserRouter>
+        <ToastContainer/>
         <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/getstarted" element={<Login/>}/>
