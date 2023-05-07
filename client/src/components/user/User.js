@@ -1,5 +1,9 @@
 import React from "react";
+import UserHeader from "./UserHeader";
 
 export default function User(){
-    return <h1>This is from User</h1>
+    return <>
+    <UserHeader/>
+    <h1>This is from User</h1>
+    </>
 }

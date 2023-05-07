@@ -6,7 +6,6 @@ import Routers from './routes/Routes';
 
 function App() {
   return <>
-    <Header />
     <AdminContext>
       <Routers />
     </AdminContext>
