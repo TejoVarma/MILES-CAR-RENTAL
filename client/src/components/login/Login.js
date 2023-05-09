@@ -3,10 +3,12 @@ import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import PasswordResetForm from "./PasswordResetForm";
 import '../../styles/Login.css'
+import Header from "../Header";
 export default function Home() {
     const [isLog, setIsLog] = useState(true);
     const [isreset, setIsreset] = useState(true);
     return <>
+    <Header/>
         <div className="home-container">
             <div className="section-container">
                 <section className="text-section">

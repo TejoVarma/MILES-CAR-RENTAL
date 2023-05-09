@@ -6,6 +6,8 @@ import Admin from "../components/admin/Admin";
 import User from "../components/user/User";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import AdminHeader from "../components/AdminHeader";
+import UserHeader from "../components/UserHeader";
 
 export default function Routers() {
     return <BrowserRouter>
@@ -13,8 +15,12 @@ export default function Routers() {
         <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/getstarted" element={<Login/>}/>
-            <Route path="/admin" element={<Admin/>}/>
-            <Route path="/user" element={<User/>}/>
+            <Route path="/admin" element={<AdminHeader/>}>
+                <Route path="cars" element={<Admin/>}/>
+            </Route>
+            <Route path="/user" element={<UserHeader/>}>
+                <Route path="check-availability" element={<User/>}/>    
+            </Route>
         </Routes>
     </BrowserRouter>
 }

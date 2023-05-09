@@ -7,9 +7,9 @@ export default function Footer() {
         </div>
         <div className='right-footer'>
             <div className='connect'>Connect Us, if any queries</div>
-            <img className='social-logos-footer' src='./fb-logo.png' alt='fb-logo' />
-            <img className='social-logos-footer' src='./insta-logo.png' alt='insta-logo' />
-            <img className='social-logos-footer' src='./twitter-logo.png' alt='twitter-logo' />
+            <img className='social-logos-footer' src='./../fb-logo.png' alt='fb-logo' />
+            <img className='social-logos-footer' src='./../insta-logo.png' alt='insta-logo' />
+            <img className='social-logos-footer' src='./../twitter-logo.png' alt='twitter-logo' />
         </div>
     </div>
 }

@@ -56,7 +56,7 @@ const userLogin = async (req, res) => {
             if (await bcrypt.compare(password, user.password)) {
                 const { name, email, contact, isUser, selected, _id, profilePic } = user;
                 let jwtToken = await jwt.sign({ name, email, contact, isUser, selected, _id }, process.env.SECRET);
-                res.status(200).json({ status: "Success", token: "JWT " + jwtToken, user : { name, email, contact, isUser, selected, _id, profilePic }});
+                res.status(200).json({ status: "Success", token: jwtToken, user : { name, email, contact, isUser, selected, _id, profilePic }});
             } else {
                 res.status(401).json({ status: "Failed", field: "password", message: "Password not match!!" });
             }
@@ -112,7 +112,7 @@ const adminLogin = async (req, res, next) => {
             if (await bcrypt.compare(password, user.password)) {
                 const { name, email, contact, isadmin, _id, profilePic } = user;
                 let jwtToken = await jwt.sign({ name, email, contact, isadmin, _id }, process.env.SECRET);
-                res.status(200).json({ status: "Success", token: "JWT " + jwtToken, user : { name, email, contact, isadmin, _id, profilePic } });
+                res.status(200).json({ status: "Success", token: jwtToken, user : { name, email, contact, isadmin, _id, profilePic } });
             } else {
                 res.status(401).json({ status: "Failed", field: "password", message: "Password not match!!" });
             }

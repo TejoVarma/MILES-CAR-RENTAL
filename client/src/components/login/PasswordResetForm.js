@@ -35,9 +35,9 @@ export default function PasswordResetForm({ setIsreset }) {
 
     useEffect(() => {
         if (getToken() && getCurrentUser().isVendor)
-            return navigate("/admin");
+            return navigate("/admin/cars");
         if (getToken() && getCurrentUser().isUser)
-            return navigate("/user");
+            return navigate("/user/check-availability");
     }, []);
 
     function onFormSubmit(e) {
