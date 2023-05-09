@@ -5,7 +5,7 @@ const URL = "http://localhost:4000";
 export async function getCars(){
     return await fetch(`${URL}/admin/cars`,{
         headers : {
-            "authorization" : JSON.parse(localStorage.getItem('adminToken'))
+            "authorization" : JSON.parse(localStorage.getItem("jwttoken"))
         }
     })
     .then(res=>res.json())

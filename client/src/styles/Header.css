@@ -53,3 +53,7 @@
     margin-right: 20px;
     cursor: pointer;
 }
+.outlet-container{
+    width: 100%;
+    height: 80vh;
+}

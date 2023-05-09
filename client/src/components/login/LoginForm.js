@@ -39,14 +39,14 @@ export default function LoginForm({ setIsLog, setIsreset }) {
                         password: ""
                     });
                     setBoo(true);
-                    if (option) toast.success(`${getCurrentUser().name} as vendor Logged in successfully`, {
+                    if (option) toast.success(`${getCurrentUser().name} as Admin Logged in successfully`, {
                         position: "bottom-right"
                     })
                     else toast.success(` ${getCurrentUser().name} as User logged in successfully`, {
                         position: "bottom-right"
                     })
-                    if (option) navigate("/admin");
-                    else navigate("/user");
+                    if (option) navigate("/admin/cars");
+                    else navigate("/user/check-availability");
                 }
                 else {
                     setBoo(true);

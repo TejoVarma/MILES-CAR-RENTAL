@@ -9,7 +9,6 @@ function App() {
     <AdminContext>
       <Routers />
     </AdminContext>
-    <Footer />
   </>
 
 }
