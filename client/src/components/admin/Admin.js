@@ -26,7 +26,7 @@ export default function Admin() {
                             <h2 className="cars-heading-admin">Cars</h2>
                         </div>
                         <div className="add-car-btn-admin">
-                            <Link to={"addcar"}>
+                            <Link to={"/admin/addcar"}>
                                 <button className="addCar-admin">Add Car</button>
                             </Link>
                         </div>
