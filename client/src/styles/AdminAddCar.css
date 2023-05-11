@@ -1,0 +1,111 @@
+.add-car-heading-admin{
+    margin-left: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.field-container-admin{
+    margin : 30px;
+}
+.form-container-admin{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    box-shadow: 0 5px 5px 0;
+}
+
+.sections-admin{
+    display: flex;
+}
+
+.left-section-admin{
+    width: 50%;
+    text-align: justify;
+}
+
+.right-section-admin{
+    width: 50%;
+}
+
+.labels-admin{
+    display: block;
+    font-size: 18px;
+    color: #2D2D2E;
+}
+.flex-admin{
+    display: flex;
+}
+.flex-boxes-admin
+{
+    width: 50%;
+}
+.buttons-container-admin{
+    display: flex;
+}
+#carname-admin{
+    margin-top: 10px;
+    width: 80%;
+    height: 30px;
+    font-size: 18px;
+}
+#type-admin, #model-admin, #mileage-admin, #perkm-admin, #availablefrom-admin, #availabletill-admin,#file-admin
+{
+    margin-top: 10px;
+    width: 250px;
+    height: 30px;
+    font-size: 18px;
+}
+#description-admin{
+    margin-top: 10px;
+    width: 90%;
+    height: 150px;
+    font-size: 20px;
+}
+#preview-img-container-admin>img{
+    width: 200px
+}
+#cardetails-admin, #details-admin{
+    margin-top: 10px;
+    width: 90%;
+    height: 150px;
+    font-size: 20px;
+}
+
+.cancel-button-admin{
+    width: 200px;
+    height: 50px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    border: 1px solid black;
+    color: black;
+    transition: 1s;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.cancel-button-admin:hover{
+    width: 250px;
+}
+
+.post-admin{
+    text-align: center;
+}
+.submit-button-admin{
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    background-color: black;
+    font-size: 20px;
+    transition: 1s;
+    color: white;
+    cursor: pointer;
+}
+.submit-button-admin:hover{
+    width: 250px;
+}
+.delete-admin{
+    margin-right: 10px;
+    background-color: red;
+}

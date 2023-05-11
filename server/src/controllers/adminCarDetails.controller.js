@@ -9,11 +9,13 @@ const Admin = require('../models/adminRegister.model');
 let carDetailsController = {};
 
 carDetailsController.addNewCar = async function (req, res) {
+    // console.log(req.body);
     try {
         let token = await getToken(req.headers);
+        // console.log(token);
         let payload = await jwt.verify(token, process.env.SECRET);
         // console.log(payload);
-        let admin = await Admin.findById(payload.user.id);
+        let admin = await Admin.findById(payload._id);
         // console.log(admin);
         if (token && admin) {
             let car = await new CAR_DETAILS({
@@ -23,6 +25,7 @@ carDetailsController.addNewCar = async function (req, res) {
                 image: `image/${req.file.filename}`
             });
             let newCar = car.save();
+            // console.log(newCar);
             res.status(200).json({ status: "Success", message: "Successfully Added", result: car });
         }
         else {
@@ -38,7 +41,7 @@ carDetailsController.getCars = async function (req, res) {
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        let admin = await Admin.findById(payload.user.id);
+        let admin = await Admin.findById(payload._id);
         // console.log(admin);
         if (token && admin) {
             let cars = await CAR_DETAILS.find({ adminId: admin._id });
@@ -56,7 +59,7 @@ carDetailsController.getCarById = async function (req, res) {
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        let admin = await Admin.findById(payload.user.id);
+        let admin = await Admin.findById(payload._id);
         if (token && admin) {
             let car = await CAR_DETAILS.findById(req.params.id);
             res.status(200).json({ status: "Success", result: car });
@@ -99,7 +102,7 @@ carDetailsController.editCar = async function (req, res) {
         // const chunksSchema = db.collection(process.env.DB_COLLECTION + ".chunks");
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        let admin = await Admin.findById(payload.user.id);
+        let admin = await Admin.findById(payload._id);
         if (token && admin) {
             let car = await CAR_DETAILS.findById(req.params.id);
             if (car) {
@@ -138,7 +141,7 @@ carDetailsController.deleteCar = async function (req, res) {
         // const chunksSchema = db.collection(process.env.DB_COLLECTION + ".chunks");
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        let admin = await Admin.findById(payload.user.id);
+        let admin = await Admin.findById(payload._id);
         if (token && admin) {
             let car = await CAR_DETAILS.findById(req.params.id);
             if (car) {
@@ -164,6 +167,7 @@ carDetailsController.deleteCar = async function (req, res) {
 function getToken(headers) {
     if (headers && headers.authorization) {
         let token = headers.authorization;
+        // console.log(token);
         return token;
     }
     else {

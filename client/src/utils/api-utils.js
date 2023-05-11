@@ -5,7 +5,7 @@ const URL = "http://localhost:4000";
 export async function getCars(){
     return await fetch(`${URL}/admin/cars`,{
         headers : {
-            "authorization" : JSON.parse(localStorage.getItem("jwttoken"))
+            "authorization" : getToken()
         }
     })
     .then(res=>res.json())
@@ -15,7 +15,7 @@ export async function getCars(){
 export async function getCarById(id){
     return await fetch(`${URL}/admin/cars/${id}`,{
         headers : {
-            "authorization" : JSON.parse(localStorage.getItem('adminToken'))
+            "authorization" : getToken()
         }
     })
     .then(res=>res.json())
@@ -26,7 +26,7 @@ export async function addNewCar(car) {
     return await fetch(`${URL}/admin/newcar`,{
         method : "POST",
         headers : {
-            "authorization" : JSON.parse(localStorage.getItem('adminToken'))
+            "authorization" : getToken()
         },
         body : car
     })
@@ -38,7 +38,7 @@ export async function editCar(car,id){
     return await fetch(`${URL}/admin/car/${id}`, {
         method : "PUT",
         headers : {
-            "authorization" : JSON.parse(localStorage.getItem('adminToken'))
+            "authorization" : getToken()
         },
         body : car
     })
@@ -50,7 +50,7 @@ export async function deleteCar(id){
     return await fetch(`${URL}/admin/car/${id}`, {
         method : "DELETE",
         headers : {
-            "authorization" : JSON.parse(localStorage.getItem('adminToken'))
+            "authorization" : getToken()
         },
     })
     .then(res=>res.json())

@@ -2,6 +2,7 @@ import React from "react";
 import '../styles/Landing.css'
 import { Link } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 
 export default function LandingPage() {
     return <>
@@ -100,5 +101,6 @@ export default function LandingPage() {
                 </div>
             </div>
         </div>
+        <Footer />
     </>
 }

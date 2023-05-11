@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 export default function Cars({ car }) {
     const { carname, perkm, availablefrom, availabletill, image } = car;
     return <div className="card-container-admin">
-            <Link to={`edit/${car._id}`}>
+            <Link to={`/admin/edit/${car._id}`}>
                 <section className="image-container-admin">
-                    <img className="image-admin" src={`https://miles-node-ptu.onrender.com/admin/${image}`} alt="car"/>
+                    <img className="image-admin" src={`http://localhost:4000/admin/${image}`} alt="car"/>
                 </section>
             </Link>
             <footer className="card-footer-admin">
@@ -19,7 +19,7 @@ export default function Cars({ car }) {
                 </section>
                 <section className="date-container-admin">
                     <p className="date-notation-admin">Available date</p>
-                    <p className="date-admin">{availablefrom}-{availabletill}</p>
+                    <p className="date-admin">{`${availablefrom.split('-')[1]} - ${availablefrom.split('-')[2]}`} to {`${availabletill.split('-')[1]} - ${availabletill.split('-')[2]}`}</p>
                 </section>
             </footer>
         </div>

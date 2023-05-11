@@ -1,6 +1,6 @@
 .header{
     width: 100%;
-    height: 75px;
+    height: fit-content;
     box-sizing: border-box;
     display: flex;
     background-color: black;
@@ -17,10 +17,12 @@
     margin-bottom: 10px;
     vertical-align: middle;
     display: inline-block;
+    cursor: pointer;
 }
 .company-name{
     margin-left: 10px;
     display: inline-block;
+    cursor: pointer;
 }
 .right-header-home{
     width: 50%;
@@ -46,14 +48,11 @@
 .links{
     margin-right: 20px;
     font-size: 18px;
+    cursor: pointer;
 }
 .social-logos{
     width: 50px;
     height: 50px;
     margin-right: 20px;
     cursor: pointer;
-}
-.outlet-container{
-    width: 100%;
-    height: 80vh;
 }
