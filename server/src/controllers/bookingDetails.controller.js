@@ -7,7 +7,7 @@ exports.getbookingdetails = async (req, res) => {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         // console.log(payload);
-        let newUser = await User.findById(payload.user.id);
+        let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const users = await carBooking.find({});
             return res.status(200).send({
@@ -33,7 +33,7 @@ exports.bookingdetailcontrol = async (req, res) => {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         console.log(payload);
-        let newUser = await User.findById(payload.user.id);
+        let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const { startdate, enddate, origin, destination } = req.body;
             if (!startdate || !enddate || !origin || !destination) {
@@ -50,10 +50,9 @@ exports.bookingdetailcontrol = async (req, res) => {
                 userId: newUser._id,
             });
             await user.save();
-            return res.status(200).send({
-                success: true,
-                message: "successful",
-                user,
+            return res.status(200).json({
+                status: "Success",
+                result : user
             });
         } else {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
@@ -72,7 +71,7 @@ exports.updatebooking = async (req, res) => {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         console.log(payload);
-        let newUser = await User.findById(payload.user.id);
+        let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const { id } = req.params;
             const { startdate, enddate, origin, destination } = req.body;
@@ -115,7 +114,7 @@ exports.deletebooking = async (req, res) => {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         console.log(payload);
-        let newUser = await User.findById(payload.user.id);
+        let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const bookingId = req.params.id;
             const booking = await carBooking.findByIdAndDelete(bookingId);
@@ -147,7 +146,7 @@ exports.getAllCars = async (req, res) => {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         console.log(payload);
-        let newUser = await User.findById(payload.user.id);
+        let newUser = await User.findById(payload._id);
         if (token && newUser) {
             let cars = await Cars.find();
             res.status(200).send({
