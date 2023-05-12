@@ -10,6 +10,7 @@ import AdminHeader from "../components/AdminHeader";
 import UserHeader from "../components/UserHeader";
 import AdminAddCar from "../components/admin/AdminAddCar";
 import AdminEditCar from "../components/admin/AdminEditCar";
+import Booking from "../components/user/Booking";
 
 export default function Routers() {
     return <BrowserRouter>
@@ -23,7 +24,8 @@ export default function Routers() {
                 <Route path="edit/:id" element = {<AdminEditCar/>}/>
             </Route>
             <Route path="/user" element={<UserHeader/>}>
-                <Route path="check-availability" element={<User/>}/>    
+                <Route path="check-availability" element={<User/>}/>
+                <Route path="carbooking" element={<Booking/>}/>   
             </Route>
         </Routes>
     </BrowserRouter>

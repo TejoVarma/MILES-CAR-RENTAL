@@ -1,60 +1,60 @@
 import { getToken } from "./storage-utils";
 const URL = "http://localhost:4000";
 
-// to get all cars
-export async function getCars(){
-    return await fetch(`${URL}/admin/cars`,{
-        headers : {
-            "authorization" : getToken()
+// to get all admin cars
+export async function getCars() {
+    return await fetch(`${URL}/admin/cars`, {
+        headers: {
+            "authorization": getToken()
         }
     })
-    .then(res=>res.json())
-    .catch(err=>alert(err.message))
+        .then(res => res.json())
+        .catch(err => alert(err.message))
 };
 // to get car by id
-export async function getCarById(id){
-    return await fetch(`${URL}/admin/cars/${id}`,{
-        headers : {
-            "authorization" : getToken()
+export async function getCarById(id) {
+    return await fetch(`${URL}/admin/cars/${id}`, {
+        headers: {
+            "authorization": getToken()
         }
     })
-    .then(res=>res.json())
-    .catch(err=>alert(err.message))
+        .then(res => res.json())
+        .catch(err => alert(err.message))
 };
 //to add new car
 export async function addNewCar(car) {
-    return await fetch(`${URL}/admin/newcar`,{
-        method : "POST",
-        headers : {
-            "authorization" : getToken()
+    return await fetch(`${URL}/admin/newcar`, {
+        method: "POST",
+        headers: {
+            "authorization": getToken()
         },
-        body : car
+        body: car
     })
-    .then(res => res.json())
-    .catch(err => alert(err.message));
+        .then(res => res.json())
+        .catch(err => alert(err.message));
 }
 // to edit car by id
-export async function editCar(car,id){
+export async function editCar(car, id) {
     return await fetch(`${URL}/admin/car/${id}`, {
-        method : "PUT",
-        headers : {
-            "authorization" : getToken()
+        method: "PUT",
+        headers: {
+            "authorization": getToken()
         },
-        body : car
+        body: car
     })
-    .then(res=>res.json())
-    .catch(err => alert(err.message))
+        .then(res => res.json())
+        .catch(err => alert(err.message))
 }
 // to delete car by id
-export async function deleteCar(id){
+export async function deleteCar(id) {
     return await fetch(`${URL}/admin/car/${id}`, {
-        method : "DELETE",
-        headers : {
-            "authorization" : getToken()
+        method: "DELETE",
+        headers: {
+            "authorization": getToken()
         },
     })
-    .then(res=>res.json())
-    .catch(err => alert(err.message))
+        .then(res => res.json())
+        .catch(err => alert(err.message))
 }
 // to logIn
 
@@ -104,6 +104,30 @@ export function passwordReset(data, boolean) {
     })
         .then(res => res.json())
         .catch(err => alert("FROM SERVER : " + err.message));
+}
+// to save the booking details
+export async function saveBookingDetails(details) {
+    return await fetch(`${URL}/user/bookingdetails`, {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json',
+            "authorization": getToken()
+        },
+        body: JSON.stringify(details)
+    })
+        .then(res => res.json())
+        .catch(err => alert("FROM SERVER : " + err.message));
+}
+
+// to get cars to display in booking page
+export async function getUserCars() {
+    return await fetch(`${URL}/user/getcars`, {
+        headers: {
+            "authorization": getToken()
+        }
+    })
+        .then(res => res.json())
+        .catch(err => alert(err.message))
 }
 
 export default URL;
