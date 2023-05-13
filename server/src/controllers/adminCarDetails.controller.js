@@ -96,10 +96,10 @@ carDetailsController.load = async function (req, res) {
 
 carDetailsController.editCar = async function (req, res) {
     try {
-        // await client.connect();
-        // const db = client.db(process.env.DB_NAME);
-        // const filesSchema = db.collection(process.env.DB_COLLECTION + ".files");
-        // const chunksSchema = db.collection(process.env.DB_COLLECTION + ".chunks");
+        await client.connect();
+        const db = client.db(process.env.DB_NAME);
+        const filesSchema = db.collection(process.env.DB_COLLECTION + ".files");
+        const chunksSchema = db.collection(process.env.DB_COLLECTION + ".chunks");
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         let admin = await Admin.findById(payload._id);
@@ -109,10 +109,10 @@ carDetailsController.editCar = async function (req, res) {
                 let updatedCar;
                 // console.log(req.body);
                 if (req.file) {
-                    // let file = await filesSchema.findOne({filename : car.image});
-                    // await chunksSchema.deleteMany({files_id : file._id});
-                    // //del file
-                    // await filesSchema.deleteOne({_id : file._id});
+                    let file = await filesSchema.findOne({filename : car.image.split('/')[1]});
+                    await chunksSchema.deleteMany({files_id : file._id});
+                    //del file
+                    await filesSchema.deleteOne({_id : file._id});
                     updatedCar = await CAR_DETAILS.findByIdAndUpdate(req.params.id, { ...req.body, image: `image/${req.file.filename}` }, { new: true })
                 }
                 else {
@@ -135,20 +135,20 @@ carDetailsController.editCar = async function (req, res) {
 };
 carDetailsController.deleteCar = async function (req, res) {
     try {
-        // await client.connect();
-        // const db = client.db(process.env.DB_NAME);
-        // const filesSchema = db.collection(process.env.DB_COLLECTION + ".files");
-        // const chunksSchema = db.collection(process.env.DB_COLLECTION + ".chunks");
+        await client.connect();
+        const db = client.db(process.env.DB_NAME);
+        const filesSchema = db.collection(process.env.DB_COLLECTION + ".files");
+        const chunksSchema = db.collection(process.env.DB_COLLECTION + ".chunks");
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         let admin = await Admin.findById(payload._id);
         if (token && admin) {
             let car = await CAR_DETAILS.findById(req.params.id);
             if (car) {
-                // let file = await filesSchema.findOne({filename : car.image});
-                // await chunksSchema.deleteMany({files_id : file._id});
-                // //del file
-                // await filesSchema.deleteOne({_id : file._id});
+                let file = await filesSchema.findOne({filename : car.image.split('/')[1]});
+                await chunksSchema.deleteMany({files_id : file._id});
+                //del file
+                await filesSchema.deleteOne({_id : file._id});
                 await CAR_DETAILS.findByIdAndDelete(req.params.id);
                 res.status(200).json({ status: "Success", message: "Successfully deleted" });
             }
