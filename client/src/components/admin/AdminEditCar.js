@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteCar, editCar, getCarById } from "../../utils/api-utils";
+import { editCar, getCarById } from "../../utils/api-utils";
 import ImagePreview from "./ImagePreview";
 import { CarList } from "../../context/AdminContext";
 import { toast } from "react-toastify";
+import DeleteConfirmation from "../DeleteConfirmation";
 
 export default function AdminEditCar() {
     const { id } = useParams();
-    const { addPreview, preview, editCarContext, deleteCarContext } = useContext(CarList);
+    const { addPreview, preview, editCarContext} = useContext(CarList);
     const [edit, setEdit] = useState(false);
+    const [popUp,setPopUp] = useState(false);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         carname: "",
@@ -79,21 +81,21 @@ export default function AdminEditCar() {
 
                 })
         }
-        else {
-            deleteCar(id)
-                .then(res => {
-                    if (res.status === "Success") {
-                        deleteCarContext();
-                        setEdit(false);
-                        navigate('/admin/cars')
-                        // window.location.reload();
-                    }
-                    else {
-                        setEdit(false);
-                        alert("Failed to delete car, try again...")
-                    }
-                })
-        }
+        // else {
+        //     deleteCar(id)
+        //         .then(res => {
+        //             if (res.status === "Success") {
+        //                 deleteCarContext();
+        //                 setEdit(false);
+        //                 navigate('/admin/cars')
+        //                 // window.location.reload();
+        //             }
+        //             else {
+        //                 setEdit(false);
+        //                 alert("Failed to delete car, try again...")
+        //             }
+        //         })
+        // }
     }
     return <div>
         <div className="add-car-body-admin">
@@ -256,8 +258,11 @@ export default function AdminEditCar() {
                         </div>
                         <div className="field-container-admin flex-boxes-admin post-admin">
                             <div>
-                                <button className="submit-button-admin delete-admin" type={"submit"}>Delete</button>
-                                <button className="submit-button-admin save-admin" type={"submit"} onClick={() => setEdit(true)}>Save</button>
+                                <button className="submit-button-admin delete-admin" onClick={e=>{
+                                    e.preventDefault()
+                                    setPopUp(true)}} type={"submit"}>Delete</button>
+                                    {popUp && <DeleteConfirmation id={id} popUp={setPopUp}/>}
+                                <button className="submit-button-admin save-admin" onClick={e=>{setEdit(true)}} type={"submit"}>Save</button>
                             </div>
                         </div>
                     </div>

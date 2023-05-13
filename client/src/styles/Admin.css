@@ -125,3 +125,31 @@ body{
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
 }
+.pagination-admin{
+    display: flex;
+    margin: 10px;
+}
+.previous-btn-container{
+    width: 50%;
+}
+.next-btn-container{
+    width: 50%;
+    text-align: end;
+}
+.previous-btn, .next-btn{
+    width: 150px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+.previous-btn:disabled{
+    background-color: #7C7C7C;
+}
+.next-btn:disabled{
+    background-color: #7C7C7C;
+}
