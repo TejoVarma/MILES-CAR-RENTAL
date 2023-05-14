@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import '../../styles/User.css'
+import '../../styles/Destination.css'
 import { saveBookingDetails } from '../../utils/api-utils'
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-export default function User() {
+export default function Destination() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         startdate: "",
