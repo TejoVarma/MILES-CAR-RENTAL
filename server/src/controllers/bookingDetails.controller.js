@@ -146,7 +146,7 @@ exports.getAllCars = async (req, res) => {
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        console.log(payload);
+        // console.log(payload);
         let newUser = await User.findById(payload._id);
         if (token && newUser) {
             let cars = await Cars.find();
