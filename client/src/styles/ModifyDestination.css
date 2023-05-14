@@ -1,0 +1,20 @@
+.change-background{
+    width: 100%;
+    /* min-width: 1500px; */
+    min-height: 100vh;
+    background-image: url("./../../public/modify.jpg");
+    background-position: fixed;
+    background-size: cover;
+}
+.cancel-button-modify{
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    background-color: grey;
+    cursor: pointer;
+    transition: 1s;
+    margin-right: 20px;
+}

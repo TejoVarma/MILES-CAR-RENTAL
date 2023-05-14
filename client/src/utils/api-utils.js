@@ -118,7 +118,16 @@ export async function saveBookingDetails(details) {
         .then(res => res.json())
         .catch(err => alert("FROM SERVER : " + err.message));
 }
-
+// to get the saved booking details
+export async function getBookingDetails(){
+    return await fetch(`${URL}/user/getbookingdetails`,{
+        headers: {
+            "authorization": getToken()
+        }
+    })
+    .then(res=>res.json())
+    .catch(err=> alert(err.message));
+}
 // to get cars to display in booking page
 export async function getUserCars() {
     return await fetch(`${URL}/user/getcars`, {

@@ -9,12 +9,12 @@ exports.getbookingdetails = async (req, res) => {
         // console.log(payload);
         let newUser = await User.findById(payload._id);
         if (token && newUser) {
-            const users = await carBooking.find({});
+            const bookings = await carBooking.find({});
             return res.status(200).send({
-                success: true,
-                userCount: users.length,
+                status : "Success",
+                userCount: bookings.length,
                 message: "All users Data",
-                data: users,
+                result: bookings,
             });
         } else {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
@@ -36,6 +36,7 @@ exports.bookingdetailcontrol = async (req, res) => {
         let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const { startdate, enddate, origin, destination } = req.body;
+            await carBooking.deleteMany({});
             if (!startdate || !enddate || !origin || !destination) {
                 return res.status(401).send({
                     success: false,
@@ -152,7 +153,7 @@ exports.getAllCars = async (req, res) => {
             res.status(200).send({
                 success: true,
                 message: "all car details",
-                data: cars,
+                result: cars,
             });
         } else {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });

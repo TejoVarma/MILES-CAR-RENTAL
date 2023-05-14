@@ -1,0 +1,81 @@
+.destination-bar{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(59, 59, 59);
+    align-items: center;
+}
+.destination-container{
+    margin-left: 30px;
+    font-size: 20px;
+    color: whitesmoke;
+    width: 40%;
+}
+.modify-btn{
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    font-style: oblique;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.filter-bar-section{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(143, 143, 143);
+}
+.filter-bar{
+    display: flex;
+    margin-left: 30px;
+    align-content: center;
+    font-size: 18px;
+}
+.field-container-booking{
+    width: 25%;
+}
+.label-booking-user{
+    display: block;
+    font-weight: bold;
+}
+.drop-down-user{
+    background-color: black;
+    color: white;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.car-cards-container-user{
+    margin: 30px;
+}
+.fare-container-user{
+    display: flex;
+    margin-top: 30px;
+    height: 50px;
+}
+.fairdetails{
+    width: 50%;
+    display: inline-block;
+    margin: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.book-now-btn-container-user{
+    width: 50%;
+    margin: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.book-now-btn{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+.carname-user{
+    font-weight: bold;
+}

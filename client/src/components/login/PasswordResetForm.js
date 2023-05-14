@@ -2,12 +2,9 @@ import React, { useEffect, useState } from "react";
 import {
     getCurrentUser,
     getToken,
-    setCurrentUser,
-    setToken,
 } from "../../utils/storage-utils";
 import { useNavigate } from "react-router-dom";
 import {
-    loginToAccount,
     passwordReset,
     secretCheck,
 } from "../../utils/api-utils";
@@ -44,7 +41,7 @@ export default function PasswordResetForm({ setIsreset }) {
         e.preventDefault();
 
         setBoo(false);
-        secretCheck(loginUser, option ? "vendor" : "user").then((res) => {
+        secretCheck(loginUser, option ? "admin" : "user").then((res) => {
             if (res.status === "Success") {
                 setBoo(true);
                 setIsCheck(true);
@@ -65,7 +62,7 @@ export default function PasswordResetForm({ setIsreset }) {
             }));
         }
         setBoo(false);
-        passwordReset(loginUser, option ? "vendor" : "user").then((res) => {
+        passwordReset(loginUser, option ? "admin" : "user").then((res) => {
             if (res.status === "Success") {
                 toast.success("Password reset Successfull", {
                     position: "bottom-right",
