@@ -35,6 +35,7 @@ export default function PasswordResetForm({ setIsreset }) {
             return navigate("/admin/cars");
         if (getToken() && getCurrentUser().isUser)
             return navigate("/user/check-availability");
+            // eslint-disable-next-line
     }, []);
 
     function onFormSubmit(e) {

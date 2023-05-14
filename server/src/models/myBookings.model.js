@@ -47,6 +47,30 @@ const myBookingSchema = Schema({
     image: {
         type: String
     },
+    carnumber : {
+        type : String
+    },
+    bookingId : {
+        type : String
+    },
+    bookingTime : {
+        type : String
+    },
+    bookingDate : {
+        type : String
+    },
+    pricePerKm  : {
+        type : String
+    },
+    pricing : {
+        type : String
+    },
+    taxes : {
+        type : String
+    },
+    subTotal : {
+        type : String
+    },
     userId: {
         type: String
     }

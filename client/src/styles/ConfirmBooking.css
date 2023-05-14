@@ -1,0 +1,107 @@
+.confirm-booking-container {
+    display: flex;
+}
+
+.confirm-booking-left-section {
+    width: 70%;
+    margin: 30px 15px 30px 30px;
+    border: 1px solid;
+}
+
+.confirm-heading {
+    margin-left: 30px;
+}
+
+.confirm-car-details-container {
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+    height: 200px;
+}
+
+.confirm-car-details {
+    width: 50%;
+}
+
+.confirm-car-image-container {
+    width: 50%;
+}
+
+.confirm-image {
+    width: 60%;
+    height: 100%;
+}
+
+.confirm-carname-container {
+    display: flex;
+}
+
+.confirm-carname-heading,
+.confirm-carnumber-heading {
+    width: 50%;
+    vertical-align: middle;
+}
+
+.confirm-carnumber-container {
+    display: flex;
+}
+
+.confirm-car-image-container {
+    margin: 10px 10px 10px 20px;
+}
+
+.destination-details-container {
+    display: flex;
+    margin-left: 30px;
+}
+
+.destination-map-container {
+    margin: 10px 10px 10px 20px;
+}
+
+.booking-id-container {
+    display: flex;
+    margin-left: 30px;
+}
+
+.confirm-map {
+    width: 180px;
+    height: 180px;
+}
+
+.confirm-booking-right-section {
+    width: 30%;
+    margin: 30px 30px 30px 15px;
+    border: 1px solid;
+}
+.confirm-payment-information-container{
+    margin-left: 30px;
+}
+.payment-price-per-km{
+    display: flex;
+}
+.payment-subtotal-container{
+    margin-left: 30px;
+    display: flex;
+}
+.payment-subtotal-heading{
+    width: 50%;
+}
+.payment-subtotal{
+    width: 50%;
+    color: #32C348;
+}
+.confirm-booking-button-container{
+    margin: 30px;
+    text-align: center;
+}
+.confirm-booking-button{
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

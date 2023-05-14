@@ -24,10 +24,10 @@ export default function Booking() {
                 }
             })
     }, []);
-    useEffect(()=>{
+    useEffect(() => {
         getUserCars()
-        .then(res=>setCars(res.result));
-    },[]);
+            .then(res => setCars(res.result));
+    }, []);
     return <>
         <div className="destination-bar">
             <div className="destination-container">
@@ -59,7 +59,7 @@ export default function Booking() {
                 <div className="field-container-booking">
                     <label className="label-booking-user">Seating</label>
                     <select className="drop-down-user">
-                        <option value="4">4 persons</option>
+                        <option value="all">All</option>
                         <option value="5">5 persons</option>
                         <option value="6">6 persons</option>
                         <option value="7">7 persons</option>
@@ -68,6 +68,7 @@ export default function Booking() {
                 <div className="field-container-booking">
                     <label className="label-booking-user">Mileage</label>
                     <select className="drop-down-user">
+                        <option value="all">All</option>
                         <option value="0-5">0-5 KM/L</option>
                         <option value="6-10">6-10 KM/L</option>
                         <option value="11-15">11-15 KM/L</option>
@@ -77,6 +78,7 @@ export default function Booking() {
                 <div className="field-container-booking">
                     <label className="label-booking-user">Price</label>
                     <select className="drop-down-user">
+                        <option value="all">All</option>
                         <option value="15-25">15-25 RS/KM</option>
                         <option value="26-50">26-50 RS/KM</option>
                         <option value="51-100">51-100 RS/KM</option>

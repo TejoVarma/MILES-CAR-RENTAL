@@ -12,6 +12,8 @@ import AdminAddCar from "../components/admin/AdminAddCar";
 import AdminEditCar from "../components/admin/AdminEditCar";
 import Booking from "../components/user/Booking";
 import ModifyDestination from "../components/user/ModifyDestination";
+import ConfirmBooking from "../components/user/ConfirmBooking";
+import MyBooking from "../components/user/MyBooking";
 
 export default function Routers() {
     return <BrowserRouter>
@@ -27,7 +29,9 @@ export default function Routers() {
             <Route path="/user" element={<UserHeader/>}>
                 <Route path="check-availability" element={<Destination/>}/>
                 <Route path="carbooking" element={<Booking/>}/>
-                <Route path="modify" element={<ModifyDestination/>}/>  
+                <Route path="modify" element={<ModifyDestination/>}/> 
+                <Route path="confirmbooking/:id" element = {<ConfirmBooking/>}/>
+                <Route path = "mybookings" element = {<MyBooking/>}/>
             </Route>
         </Routes>
     </BrowserRouter>
