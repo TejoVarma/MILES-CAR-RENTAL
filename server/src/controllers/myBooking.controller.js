@@ -5,7 +5,7 @@ exports.getmybookings = async (req, res) => {
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        console.log(payload);
+        // console.log(payload);
         let newUser = await User.findById(payload.user.id);
         if (token && newUser) {
             const users = await myBookings.find({});
@@ -28,39 +28,46 @@ exports.getmybookings = async (req, res) => {
     }
 };
 exports.postbookings = async (req, res) => {
+    // console.log(req.body);
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         // console.log(payload);
-        let user = await User.findById(payload.user.id);
+        let user = await User.findById(payload._id);
+        // console.log(user);
         if (token && user) {
-            const { startdate, enddate, origin, destination, carname, image } =
-                req.body;
-            const booking = new myBookings({
-                startdate,
-                enddate,
-                origin,
-                destination,
-                carname,
-                image,
-                userId: user._id,
-            });
-
-            await user.save();
-            return res.status(200).send({
-                success: true,
-                message: "successful",
-                booking,
-            });
+            // console.log(req.body)
+            const oldbooking = await myBookings.findOne({bookingId : req.body.bookingId});
+            // console.log(oldbooking)
+            if(oldbooking)
+            {
+                res.status(400).json({status : "Present", result : "Already booked the same car"});
+            }
+            else
+            {
+                // console.log("Hi");
+                const booking = new myBookings({
+                    ...req.body,
+                    userId : user._id
+                });
+                console.log(booking);
+                await booking.save();
+                return res.status(200).send({
+                    status: "Success",
+                    message: "successful",
+                    result : booking
+                });
+            }
+            
         } else {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err);
+        console.log(err.message);
         return res.status(500).send({
-            success: false,
+            status: "Failed",
             message: "error in my bookings",
-            err,
+            result : err.message
         });
     }
 };

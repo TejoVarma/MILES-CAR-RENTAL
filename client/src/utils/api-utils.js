@@ -119,14 +119,14 @@ export async function saveBookingDetails(details) {
         .catch(err => alert("FROM SERVER : " + err.message));
 }
 // to get the saved booking details
-export async function getBookingDetails(){
-    return await fetch(`${URL}/user/getbookingdetails`,{
+export async function getBookingDetails() {
+    return await fetch(`${URL}/user/getbookingdetails`, {
         headers: {
             "authorization": getToken()
         }
     })
-    .then(res=>res.json())
-    .catch(err=> alert(err.message));
+        .then(res => res.json())
+        .catch(err => alert(err.message));
 }
 // to get cars to display in booking page
 export async function getUserCars() {
@@ -138,5 +138,27 @@ export async function getUserCars() {
         .then(res => res.json())
         .catch(err => alert(err.message))
 }
-
+// to get car by id
+export async function getUserCarById(id) {
+    return await fetch(`${URL}/user/getcar/${id}`, {
+        headers: {
+            "authorization": getToken()
+        }
+    })
+        .then(res => res.json())
+        .catch(err => alert(err.message))
+};
+// to add data to mybookings
+export async function saveToMyBookings(data) {
+    return await fetch(`${URL}/user/postmybookings`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "authorization": getToken(),
+        },
+        body: JSON.stringify(data),
+    })
+        .then(res => res.json())
+        .catch(err => alert(err.message))
+}
 export default URL;

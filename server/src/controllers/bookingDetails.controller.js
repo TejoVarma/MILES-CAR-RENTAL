@@ -166,6 +166,33 @@ exports.getAllCars = async (req, res) => {
         });
     }
 };
+exports.getCarById = async (req,res)=>{
+    try{
+        let token = await getToken(req.headers);
+        let payload = await jwt.verify(token, process.env.SECRET);
+        // console.log(payload);
+        let newUser = await User.findById(payload._id);
+        if (token && newUser) {
+            let car = await Cars.find({_id : req.params.id});
+            res.status(200).send({
+                success: true,
+                message: "all car details",
+                result: car,
+            });
+        }
+        else {
+            res.status(403).json({ status: "Failed", result: "Unauthorized" });
+        }
+    }
+    catch(err)
+    {
+        res.status(400).send({
+            success: false,
+            message: "failed to get car details",
+            err,
+        });
+    }
+}
 
 function getToken(headers) {
     if (headers && headers.authorization) {
