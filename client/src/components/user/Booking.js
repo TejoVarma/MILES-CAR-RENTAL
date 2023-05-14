@@ -27,7 +27,7 @@ export default function Booking() {
     useEffect(()=>{
         getUserCars()
         .then(res=>setCars(res.result));
-    })
+    },[]);
     return <>
         <div className="destination-bar">
             <div className="destination-container">
