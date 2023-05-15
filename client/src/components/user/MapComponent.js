@@ -16,7 +16,7 @@ function MapComponent({id}) {
   const [response, setResponse] = useState(null);
   const [data, setdata] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:4000/user/getbookingdetails`, {
+    fetch(`https://miles-car-rental-node-tejo.onrender.com/user/getbookingdetails`, {
       headers: {
         authorization: getToken(),
       },

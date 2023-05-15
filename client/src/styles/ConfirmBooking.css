@@ -68,7 +68,24 @@
     width: 180px;
     height: 180px;
 }
-
+.confirm-booking-cancel-button-container{
+    width: 90%;
+    margin: 30px auto;
+}
+.confirm-booking-cancel-button{
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    border: 1px solid;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 1s;
+}
+.confirm-booking-cancel-button:hover{
+    width: 250px;
+}
 .confirm-booking-right-section {
     width: 30%;
     margin: 30px 30px 30px 15px;

@@ -65,7 +65,7 @@ export default function MyBooking() {
                             currentData.map(booking => {
                                 return <div className="my-booking-card" key={booking._id}>
                                     <div className="mybooking-image-container">
-                                        <img className="mybooking-image" src={`http://localhost:4000/admin/${booking.image}`} alt="car" />
+                                        <img className="mybooking-image" src={`https://miles-car-rental-node-tejo.onrender.com/admin/${booking.image}`} alt="car" />
                                     </div>
                                     <hr style={{ height: "90%", transform: "rotate(180deg)", margin: "5px" }} />
                                     <div className="mybooking-cardetails-container">
