@@ -22,6 +22,7 @@ carDetailsController.addNewCar = async function (req, res) {
                 ...req.body,
                 _id: uuid.v4(),
                 adminId: admin._id,
+                carId : uuid.v4(),
                 image: `image/${req.file.filename}`
             });
             let newCar = car.save();

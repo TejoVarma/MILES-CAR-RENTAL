@@ -20,7 +20,7 @@ exports.getbookingdetails = async (req, res) => {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(500).send({
             success: false,
             message: "Error in Getting All users Data",
@@ -32,7 +32,7 @@ exports.bookingdetailcontrol = async (req, res) => {
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        console.log(payload);
+        // console.log(payload);
         let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const { startdate, enddate, origin, destination } = req.body;
@@ -59,7 +59,7 @@ exports.bookingdetailcontrol = async (req, res) => {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(500).send({
             success: false,
             message: "error in car booking",
@@ -71,7 +71,7 @@ exports.updatebooking = async (req, res) => {
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        console.log(payload);
+        // console.log(payload);
         let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const { id } = req.params;
@@ -102,7 +102,7 @@ exports.updatebooking = async (req, res) => {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(500).send({
             success: false,
             message: "error in updated booking details",
@@ -114,7 +114,7 @@ exports.deletebooking = async (req, res) => {
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        console.log(payload);
+        // console.log(payload);
         let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const bookingId = req.params.id;
@@ -134,7 +134,7 @@ exports.deletebooking = async (req, res) => {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(500).send({
             success: false,
             message: "error in deleting booking details",

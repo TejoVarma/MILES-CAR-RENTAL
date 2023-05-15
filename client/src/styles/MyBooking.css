@@ -113,7 +113,7 @@ p{
     cursor: pointer;
     transition: 1s;
 }
-.goback{
+.goback,.bookingcar-navigate{
     margin-top: 20px;
     margin-bottom: 20px;
     width: 200px;
@@ -125,6 +125,9 @@ p{
     cursor: pointer;
     transition: 1s;
 }
-.goback:hover{
+.goback:hover,.bookingcar-navigate:hover{
     width: 250px;
+}
+.bookingcar-navigate{
+    margin-left: 30px;
 }
