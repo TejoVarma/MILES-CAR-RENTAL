@@ -1,5 +1,5 @@
 import { getToken } from "./storage-utils";
-const URL = "http://localhost:4000";
+const URL = "https://miles-car-rental-node-tejo.onrender.com";
 
 // to get all admin cars
 export async function getCars() {

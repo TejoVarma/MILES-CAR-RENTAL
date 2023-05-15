@@ -6,7 +6,7 @@ export default function UserCar({ car }) {
     const { carname, perkm, image, _id } = car;
     return <div className="card-container-admin">
         <section className="image-container-admin">
-            <img className="image-admin" src={`http://localhost:4000/admin/${image}`} alt="car" />
+            <img className="image-admin" src={`https://miles-car-rental-node-tejo.onrender.com/admin/${image}`} alt="car" />
         </section>
         <footer className="card-footer-admin">
             <section className="persons-container-admin">

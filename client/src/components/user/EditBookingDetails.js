@@ -62,7 +62,7 @@ export default function EditBooking() {
                         </div>
                     </div>
                     <div className="confirm-car-image-container">
-                        <img className="confirm-image" src={`http://localhost:4000/admin/${car.image}`} alt="car" />
+                        <img className="confirm-image" src={`https://miles-car-rental-node-tejo.onrender.com/admin/${car.image}`} alt="car" />
                     </div>
                 </div>
                 <hr style={{ width: '97%' }} />
@@ -151,6 +151,11 @@ export default function EditBooking() {
                             <p className="confirm-carname">{car.bookingTime}</p>
                         </div>
                     </div>
+                </div>
+                <div onClick={e=>{
+                    navigate('/user/mybookings');
+                }} className="confirm-booking-cancel-button-container">
+                    <button className="confirm-booking-cancel-button">Cancel</button>
                 </div>
             </div>
             <div className="confirm-booking-right-section">
