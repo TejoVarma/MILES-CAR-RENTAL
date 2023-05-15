@@ -6,14 +6,14 @@ exports.getmybookings = async (req, res) => {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         // console.log(payload);
-        let newUser = await User.findById(payload.user.id);
+        let newUser = await User.findById(payload._id);
         if (token && newUser) {
-            const users = await myBookings.find({});
-            return res.status(200).send({
-                success: true,
+            const users = await myBookings.find({userId : newUser._id});
+            return res.status(200).json({
+                status : "Success",
                 userCount: users.length,
                 message: "All users Data",
-                data: users,
+                result: users,
             });
         } else {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
@@ -72,15 +72,14 @@ exports.postbookings = async (req, res) => {
     }
 };
 exports.updatemybooking = async (req, res) => {
-    console.log(req);
+    // console.log(req);
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        console.log(payload);
-        let newUser = await User.findById(payload.user.id);
+        // console.log(payload);
+        let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const { id } = req.params;
-            const { carname, startdate, enddate, origin, destination } = req.body;
             // if (!startdate || !enddate || !origin || !destination||!carname) {
             //   return res.status(401).send({
             //     success: false,
@@ -89,8 +88,8 @@ exports.updatemybooking = async (req, res) => {
             // }
             const updatedDetails = await myBookings.findByIdAndUpdate(
                 id,
-                { carname, startdate, enddate, origin, destination },
-                { new: true }
+                {...req.body},
+                {new : true}
             );
             if (!updatedDetails) {
                 return res.status(404).send({
@@ -99,15 +98,15 @@ exports.updatemybooking = async (req, res) => {
                 });
             }
             return res.status(200).send({
-                success: true,
+                status: "Success",
                 message: "Booking Details Updated Succesfully",
-                details: updatedDetails,
+                result: updatedDetails,
             });
         } else {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(500).send({
             success: false,
             message: "error in updated booking details",
@@ -120,7 +119,7 @@ exports.deletemybooking = async (req, res) => {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         console.log(payload);
-        let newUser = await User.findById(payload.user.id);
+        let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const bookingId = req.params.id;
             const booking = await myBookings.findByIdAndDelete(bookingId);
@@ -133,7 +132,6 @@ exports.deletemybooking = async (req, res) => {
             return res.status(200).send({
                 success: true,
                 message: "Booking Details Deleted Succesfully",
-                booking,
             });
         } else {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
@@ -152,13 +150,13 @@ exports.getmybookingbyid = async (req, res) => {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
         // console.log(payload);
-        let newUser = await User.findById(payload.user.id);
+        let newUser = await User.findById(payload._id);
         if (token && newUser) {
             // const { bookingId } = req.params;
             const booking = await myBookings.findById(req.params.id);
             return res.status(200).send({
                 success: true,
-                data: booking,
+                result: booking,
             });
         } else {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
