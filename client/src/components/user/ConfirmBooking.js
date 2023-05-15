@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import '../../styles/ConfirmBooking.css'
 import { getBookingDetails, getUserCarById, saveToMyBookings } from "../../utils/api-utils";
-import Map from "./Map";
+import MapComponent from "./MapComponent";
 import {toast} from 'react-toastify'
 export default function ConfirmBooking() {
     const navigate = useNavigate();
@@ -17,7 +17,8 @@ export default function ConfirmBooking() {
         description: "",
         cardetails: "",
         details: "",
-        image: ""
+        image: "",
+        carId :""
     });
     const [destination, setDestination] = useState([]);
     const { id } = useParams();
@@ -43,6 +44,7 @@ export default function ConfirmBooking() {
             pricing : pricing,
             taxes : taxes,
             subTotal : subTotal,
+            carId : car.carId
         };
         // console.log(data);
         saveToMyBookings(data)
@@ -57,7 +59,7 @@ export default function ConfirmBooking() {
             }
             else if(res.status === "Present")
             {
-                toast.success(`Already car was booked`, {
+                toast.error(`Already car was booked`, {
                     position: "bottom-right"
                 });
                 navigate('/user/carbooking');
@@ -85,14 +87,15 @@ export default function ConfirmBooking() {
                     description: res.result[res.result.length - 1].description,
                     cardetails: res.result[res.result.length - 1].cardetails,
                     details: res.result[res.result.length - 1].details,
-                    image: res.result[res.result.length - 1].image
+                    image: res.result[res.result.length - 1].image,
+                    carId : res.result[res.result.length - 1].carId
                 })
                 // console.log(res.result[res.result.length-1]);
             });
         getBookingDetails()
             .then(res => setDestination(res.result[res.result.length - 1]));
     }, [id]);
-    // console.log(car.image);
+    // console.log(car.carId);
     // console.log(destination);
     return <>
         <div className="confirm-booking-container">
@@ -137,7 +140,7 @@ export default function ConfirmBooking() {
                     </div>
                     <div className="destination-map-container">
                         <div className="confirm-map" >
-                            {/* <Map /> */}
+                            <MapComponent id={destination._id}/>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 const myBookings = require("../models/myBookings.model");
 const User = require("../models/userRegister.model");
 const jwt = require("jsonwebtoken");
+const carDetailsController = require("./adminCarDetails.controller");
 exports.getmybookings = async (req, res) => {
     try {
         let token = await getToken(req.headers);
@@ -19,7 +20,7 @@ exports.getmybookings = async (req, res) => {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(500).send({
             success: false,
             message: "Error in Getting All users Data",
@@ -37,7 +38,7 @@ exports.postbookings = async (req, res) => {
         // console.log(user);
         if (token && user) {
             // console.log(req.body)
-            const oldbooking = await myBookings.findOne({bookingId : req.body.bookingId});
+            const oldbooking = await myBookings.findOne({carId : req.body.carId});
             // console.log(oldbooking)
             if(oldbooking)
             {
@@ -48,9 +49,10 @@ exports.postbookings = async (req, res) => {
                 // console.log("Hi");
                 const booking = new myBookings({
                     ...req.body,
-                    userId : user._id
+                    userId : user._id,
+                    carId : req.body.carId
                 });
-                console.log(booking);
+                // console.log(booking);
                 await booking.save();
                 return res.status(200).send({
                     status: "Success",
@@ -63,7 +65,7 @@ exports.postbookings = async (req, res) => {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err.message);
+        // console.log(err.message);
         return res.status(500).send({
             status: "Failed",
             message: "error in my bookings",
@@ -118,7 +120,7 @@ exports.deletemybooking = async (req, res) => {
     try {
         let token = await getToken(req.headers);
         let payload = await jwt.verify(token, process.env.SECRET);
-        console.log(payload);
+        // console.log(payload);
         let newUser = await User.findById(payload._id);
         if (token && newUser) {
             const bookingId = req.params.id;
@@ -137,7 +139,7 @@ exports.deletemybooking = async (req, res) => {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(500).send({
             success: false,
             message: "error in deleting booking details",
@@ -162,7 +164,7 @@ exports.getmybookingbyid = async (req, res) => {
             res.status(403).json({ status: "Failed", result: "Unauthorized" });
         }
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(500).send({
             success: false,
             message: "Error in Getting Booking Data by Id",

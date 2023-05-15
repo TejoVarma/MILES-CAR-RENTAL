@@ -51,6 +51,9 @@ const carDetailsSchema = Schema({
     },
     adminId: {
         type: String
+    },
+    carId : {
+        type : String
     }
 });
 

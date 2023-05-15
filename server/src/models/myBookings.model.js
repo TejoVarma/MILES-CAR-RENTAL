@@ -73,6 +73,9 @@ const myBookingSchema = Schema({
     },
     userId: {
         type: String
+    },
+    carId:{
+        type: String
     }
 });
 
