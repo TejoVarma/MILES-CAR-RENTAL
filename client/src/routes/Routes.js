@@ -14,24 +14,26 @@ import Booking from "../components/user/Booking";
 import ModifyDestination from "../components/user/ModifyDestination";
 import ConfirmBooking from "../components/user/ConfirmBooking";
 import MyBooking from "../components/user/MyBooking";
+import EditBooking from "../components/user/EditBookingDetails";
 
 export default function Routers() {
     return <BrowserRouter>
-        <ToastContainer/>
+        <ToastContainer />
         <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/getstarted" element={<Login/>}/>
-            <Route path="/admin" element={<AdminHeader/>}>
-                <Route path="cars" element={<Admin/>}/>
-                <Route path="addcar" element = {<AdminAddCar/>}/>
-                <Route path="edit/:id" element = {<AdminEditCar/>}/>
+            <Route path="/getstarted" element={<Login />} />
+            <Route path="/admin" element={<AdminHeader />}>
+                <Route path="cars" element={<Admin />} />
+                <Route path="addcar" element={<AdminAddCar />} />
+                <Route path="edit/:id" element={<AdminEditCar />} />
             </Route>
-            <Route path="/user" element={<UserHeader/>}>
-                <Route path="check-availability" element={<Destination/>}/>
-                <Route path="carbooking" element={<Booking/>}/>
-                <Route path="modify" element={<ModifyDestination/>}/> 
-                <Route path="confirmbooking/:id" element = {<ConfirmBooking/>}/>
-                <Route path = "mybookings" element = {<MyBooking/>}/>
+            <Route path="/user" element={<UserHeader />}>
+                <Route path="check-availability" element={<Destination />} />
+                <Route path="carbooking" element={<Booking />} />
+                <Route path="modify" element={<ModifyDestination />} />
+                <Route path="confirmbooking/:id" element={<ConfirmBooking />} />
+                <Route path="mybookings" element={<MyBooking />} />
+                <Route path="editmybooking/:id" element={<EditBooking />} />
             </Route>
         </Routes>
     </BrowserRouter>

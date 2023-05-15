@@ -161,4 +161,48 @@ export async function saveToMyBookings(data) {
         .then(res => res.json())
         .catch(err => alert(err.message))
 }
+//to get mybookings data
+export async function getMyBooking() {
+    return await fetch(`${URL}/user/mybookings`, {
+        headers: {
+            "authorization": getToken(),
+        },
+    })
+        .then(res => res.json())
+        .catch(err => alert(err.message))
+}
+//to get my booking details by id
+export async function getMyBookingById(id) {
+    return await fetch(`${URL}/user/get/${id}`, {
+        headers: {
+            "authorization": getToken(),
+        },
+    })
+        .then(res => res.json())
+        .catch(err => alert(err.message))
+}
+// to edit the my booking details
+export async function editMyBookingById(data, id){
+    return await fetch(`${URL}/user/update/${id}`,{
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "authorization": getToken(),
+        },
+        body: JSON.stringify(data),
+    })
+        .then(res => res.json())
+        .catch(err => alert(err.message))
+}
+// to delete my booking
+export async function deleteMyBookingById(id){
+    return await fetch(`${URL}/user/mybookings/${id}`,{
+        method: "DELETE",
+        headers: {
+            "authorization": getToken(),
+        }
+    })
+        .then(res => res.json())
+        .catch(err => alert(err.message))
+}
 export default URL;
